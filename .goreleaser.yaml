@@ -26,6 +26,3 @@ archives:
         strip_parent: true
 changelog:
   disable: true
-release:
-  header: |
-    ## 更新日志
