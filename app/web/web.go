@@ -43,6 +43,12 @@ func Start(ctx context.Context) {
 		orderGrp.POST("/cancel-transaction", cancelTransaction)
 	}
 
+	// 获取支持的链类型（无需签名验证）
+	infoGrp := engine.Group("/api/v1/info")
+	{
+		infoGrp.GET("/trade-types", getTradeTypes)
+	}
+
 	// 易支付兼容
 	{
 		engine.POST("/submit.php", epaySubmit)
