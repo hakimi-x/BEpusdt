@@ -27,13 +27,7 @@ archives:
 changelog:
   sort: asc
   filters:
-    exclude:
-      - "^docs:"
-      - "^test:"
-      - "^chore:"
+    exclude: []
 release:
-  footer: >-
-
-    ---
-
-    Released by [GoReleaser](https://github.com/goreleaser/goreleaser).
+  header: |
+    ## 更新日志
