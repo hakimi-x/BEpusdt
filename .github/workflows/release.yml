@@ -34,6 +34,6 @@ jobs:
         with:
           distribution: goreleaser
           version: "~> v2"
-          args: release --clean --verbose --release-notes CHANGELOG.md
+          args: release --clean --verbose --release-notes CHANGELOG.md --skip=validate
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

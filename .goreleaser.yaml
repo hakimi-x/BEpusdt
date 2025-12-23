@@ -2,6 +2,9 @@ version: 2
 project_name: BEpusdt
 env:
   - GO111MODULE=on
+git:
+  ignore_tags:
+    - nightly
 builds:
   - env:
       - CGO_ENABLED=0
