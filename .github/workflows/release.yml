@@ -16,6 +16,15 @@ jobs:
           fetch-depth: 0
       - name: Git Fetch Tags
         run: git fetch --force --tags
+      - name: Generate Changelog
+        run: |
+          # 获取我的提交（hakimi-x 的提交）
+          echo "## 更新日志" > CHANGELOG.md
+          echo "" >> CHANGELOG.md
+          git log --oneline --author="hakimi" --pretty=format:"- %s" >> CHANGELOG.md || \
+          git log --oneline -10 --pretty=format:"- %s" >> CHANGELOG.md
+          echo "" >> CHANGELOG.md
+          cat CHANGELOG.md
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
@@ -25,6 +34,6 @@ jobs:
         with:
           distribution: goreleaser
           version: "~> v2"
-          args: release --clean --verbose
+          args: release --clean --verbose --release-notes CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

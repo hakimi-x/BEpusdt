@@ -25,9 +25,7 @@ archives:
         dst: .
         strip_parent: true
 changelog:
-  sort: asc
-  filters:
-    exclude: []
+  disable: true
 release:
   header: |
     ## 更新日志
